@@ -1,7 +1,18 @@
 $(document).ready(function(){
     $('.carousel__inner').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3  
+        speed: 1200,
+        adaptiveHeight: true,
+        prevArrow: '<button type="button" class="slick-prev"><img src="../icons/left.svg"></button>',
+        nextArrow: '<button type="button" class="slick-next"><img src="../icons/right.svg"></button>',
+        
+        responsive: [
+            {
+                breakpoint: 880,
+                settings: {
+                    dots: true,
+                    arrows: false,
+                }
+            }
+        ]
     });
 });
