@@ -65,6 +65,18 @@
             min-height: 400px;
         }
     }
+    .carousel {
+        &__inner {
+            width: auto;
+            img {
+                width: 100%;
+            }
+            .slick-dots {
+                display: flex;
+                justify-content: center;    
+            }
+        }
+    }
 }
 
 @media (max-width: 575px) {
