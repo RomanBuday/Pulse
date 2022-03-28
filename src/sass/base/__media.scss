@@ -25,6 +25,11 @@
     .feed-form {
         margin-left: 20px;
     }
+    .modal {
+        .feed-form_mt25 {
+            margin-left: 0;
+        }
+    }
 }
 
 @media (max-width: 767px) {
@@ -77,6 +82,20 @@
             }
         }
     }
+    .catalog {
+        &__tab {
+            width: 170px;   
+        }
+    }
+    .catalog-item {
+        width: 400px;
+        margin: 0 auto;
+    }
+    .feed {
+        &__inner {
+            margin: 0 10px;
+        }
+    }
 }
 
 @media (max-width: 575px) {
@@ -106,6 +125,9 @@
             width: 100%;
         }
     }
+    .carousel {
+        padding: 40px 0;
+    }
     .advantages {
         .title {
             padding-top: 20px;
@@ -127,6 +149,7 @@
     .title {
         &_left {
             text-align: center;
+            font-size: 30px;
         }
     }
     .consultation {
@@ -142,6 +165,54 @@
     .button {
         &_submit {
             margin: 0;
+        }
+    }
+    .catalog {
+        padding-bottom: 40px;
+        &__tabs {
+            flex-direction: column;
+            margin-top: 40px;
+        }
+        &__tab {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 10px;
+        }
+        .catalog-item {
+            width: 80%;
+        }
+    }
+    .feed {
+        &__inner {
+            flex-direction: column;
+            align-items: center;
+        }
+        &__content {
+            padding: 0 10px;
+        }
+        &__name {
+            text-align: center;
+        }
+        &__skill {
+            text-align: center;
+        }
+    }
+    .footer {
+        &__info {
+            width: 320px;
+        }
+        &__social-item {
+            width: 35px;
+            height: 35px;
+            img {
+                height: 18px;
+            }
+        }
+    }
+    .modal {
+        &__close {
+            right: 10px;
+            top: 10px;
         }
     }
 }    
