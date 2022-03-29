@@ -51,8 +51,59 @@ $(document).ready(function(){
             $('.overlay, #order').fadeIn('slow');
         })
     });
+   
+    function valideForms(form){
+        $(form).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minLength: 2
+                },
+                phone: 'required',
+                email: {
+                    required: true,
+                    email: true
+                }
+            },
     
-    $('.feed-form').validate();
-    $('#consultation form').validate();
-    $('#order form').validate();
+            messages: {
+                name: {
+                    required: 'Введите Ваше имя',
+                    minLength: jQuery.validator.format('Должно быть указано не менее {2} символа')
+                },
+                phone: 'Введите свой телефон',
+                email: {
+                    required: 'Введите свою почту',
+                    email: 'Ваша почта должна быть указана в верном формате'
+                }
+            }
+        });
+    };
+
+    valideForms('#consultation-form');
+    valideForms('#consultation form');
+    valideForms('#order form');
+    
+    $('input[name=phone]').mask('+3(099)999-99-99');
+
+    $('form').submit(function(e) {
+        e.preventDefault();
+
+        if(!$(this).valid()) {
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+
+            $('form').trigger('reset');
+        });
+        return false;
+    });
 });
